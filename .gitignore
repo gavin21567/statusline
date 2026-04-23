@@ -1,0 +1,44 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# JetBrains IDEs (IntelliJ IDEA, etc.)
+.idea/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Vim / Emacs / editor swap files
+*.swp
+*.swo
+*.swn
+*~
+\#*\#
+.\#*
+
+# Claude Code local settings
+.claude/settings.local.json
+.claude/.credentials.json
+
+# Logs
+*.log
+logs/
+
+# Temporary & backup files
+*.tmp
+*.temp
+*.bak
+*.orig
