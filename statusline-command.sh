@@ -97,8 +97,10 @@ render_rate_line() {
     printf -v pct_fmt '%3d%%' "$pct"
 
     if [ -n "$reset" ] && [ "$reset" != "null" ] && [ "$reset" -gt "$now_epoch" ] 2>/dev/null; then
+        # BSD date (macOS) uses -r; GNU date (Linux/WSL/Git Bash) uses -d @epoch.
         local t
-        t=$(date -r "$reset" "+%b %e, %l:%M%p" 2>/dev/null)
+        t=$(date -r "$reset" "+%b %e, %l:%M%p" 2>/dev/null \
+          || date -d "@$reset" "+%b %e, %l:%M%p" 2>/dev/null)
         t=${t//AM/am}; t=${t//PM/pm}
         while [[ $t == *"  "* ]]; do t=${t//  / }; done
         reset_str="   ${C_WHITE}${t}${RESET}"
